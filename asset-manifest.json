@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/DSerSmart/goit-react-hw-02-phonebook.git/static/css/main.0014dc1c.css",
-    "main.js": "/DSerSmart/goit-react-hw-02-phonebook.git/static/js/main.c1d5a5dc.js",
-    "index.html": "/DSerSmart/goit-react-hw-02-phonebook.git/index.html",
-    "main.0014dc1c.css.map": "/DSerSmart/goit-react-hw-02-phonebook.git/static/css/main.0014dc1c.css.map",
-    "main.c1d5a5dc.js.map": "/DSerSmart/goit-react-hw-02-phonebook.git/static/js/main.c1d5a5dc.js.map"
+    "main.css": "/DSerSmart/goit-react-hw-02-phonebook/static/css/main.0014dc1c.css",
+    "main.js": "/DSerSmart/goit-react-hw-02-phonebook/static/js/main.c1d5a5dc.js",
+    "index.html": "/DSerSmart/goit-react-hw-02-phonebook/index.html",
+    "main.0014dc1c.css.map": "/DSerSmart/goit-react-hw-02-phonebook/static/css/main.0014dc1c.css.map",
+    "main.c1d5a5dc.js.map": "/DSerSmart/goit-react-hw-02-phonebook/static/js/main.c1d5a5dc.js.map"
   },
   "entrypoints": [
     "static/css/main.0014dc1c.css",

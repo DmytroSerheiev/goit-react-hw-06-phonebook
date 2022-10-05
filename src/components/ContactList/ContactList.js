@@ -1,23 +1,27 @@
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Filter from './Filter'
 import s from './ContactList.module.css';
 
 const element = <FontAwesomeIcon icon={faTrashAlt} />;
+<Filter/>
 
-const Filter = ({ value, onChangeFilter }) => {
-  return (
-    <div className={s.filter}>
-      <label>
-        Find contacts by name
-        <input
-          type="text"
-          value={value}
-          onChange={e => onChangeFilter(e.target.value)}
-        />
-      </label>
-    </div>
-  );
-};
+// const Filter = ({ value, onChangeFilter }) => {
+//   return (
+//     <div className={s.filter}>
+//       <label>
+//         Find contacts by name
+//         <input
+//           type="text"
+//           value={value}
+//           onChange={e => onChangeFilter(e.target.value)}
+//         />
+//       </label>
+//     </div>
+
+//   );
+// };
 
 const ContactList = ({ contacts, filter, onChangeFilter, onDeleteContact }) => {
   const contactList = contacts.map(({ id, name, number }) => {
@@ -52,5 +56,20 @@ const ContactList = ({ contacts, filter, onChangeFilter, onDeleteContact }) => {
     </div>
   );
 };
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.number.isRequired,
+      number: PropTypes.number.isRequired,
+    })
+  ),
+  filter: PropTypes.number.isRequired,
+  onChangeFilter: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.string.isRequired,
+ 
+};
+
 
 export default ContactList;

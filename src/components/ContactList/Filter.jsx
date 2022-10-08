@@ -1,3 +1,4 @@
+
 import React from "react";
 import s from './ContactList.module.css';
 
@@ -15,5 +16,5 @@ const Filter = ({ value, onChangeFilter }) => {
       </div>
     );
   };
-  
+ 
   export default Filter;

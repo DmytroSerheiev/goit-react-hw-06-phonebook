@@ -13,6 +13,18 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parseContacts = JSON.parse(contacts);
+    if (parseContacts)
+      this.setState({
+        contacts: parseContacts,
+      });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
 
   addContactPhone = ({ name, number }) => {
     if (this.state.contacts.find(contact => contact.name === name)) {

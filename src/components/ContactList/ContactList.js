@@ -59,15 +59,15 @@ const ContactList = ({ contacts, filter, onChangeFilter, onDeleteContact }) => {
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
-      name: PropTypes.number.isRequired,
-      number: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
-  filter: PropTypes.number.isRequired,
-  onChangeFilter: PropTypes.string.isRequired,
-  onDeleteContact: PropTypes.string.isRequired,
+  // filter: PropTypes.number.isRequired,
+  // onChangeFilter: PropTypes.string.isRequired,
+  // onDeleteContact: PropTypes.string.isRequired,
  
 };
 

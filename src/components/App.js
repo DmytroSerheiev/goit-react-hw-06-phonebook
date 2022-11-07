@@ -1,80 +1,35 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import Layout from './Layout/Layout';
-import Section from './Section/Section';
-import FormPhone from './FormPhone/FormPhone';
-import ContactList from './ContactList/ContactList';
+import Section from './Layout/Section';
+import ContactForm from './ContactForm/ContactForm';
+import ContactsList from './ContactsList/ContactsList';
+import Filter from './Filter/Filter';
 
-import { v4 as uuidv4 } from 'uuid';
-
-import './App.css';
-
-export const App = () => {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
-
-  //===================================================
-  //  componentDidMount() {
-  //     const contacts = localStorage.getItem('contacts');
-  //     const parseContacts = JSON.parse(contacts);
-  //     if (parseContacts)
-  //       this.setState({
-  //         contacts: parseContacts,
-  //       });
-  //   }
-  //   componentDidUpdate() {
-  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  //   }
-  //=======================================================
-
-  const addContactPhone = (name, number) => {
-    if (contacts.find(contact => contact.name === name)) {
-      alert(`${name} уже есть в списке ваших контактов`);
-      return;
-    }
-
-    const contact = {
-      id: uuidv4(),
-      name,
-      number,
-    };
-
-    setContacts(prevState => [...prevState, contact]);
-  };
-
-  const deleteContact = contactID => {
-    setContacts(contacts.filter(({ id }) => id !== contactID));
-  };
-
-  const changeFilter = filter => {
-    setFilter(filter);
-  };
-
-  const getVisibleContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter)
-    );
-  };
-
-  const visibleContacts = getVisibleContacts();
+function App({ contacts }) {
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <Layout>
-      <h1>Home Work #4</h1>
       <Section title="Phonebook">
-        <FormPhone addContactPhone={addContactPhone} />
+        <ContactForm />
       </Section>
-      {!!contacts.length && (
+
+      {contacts.length ? (
         <Section title="Contacts">
-          <ContactList
-            contacts={visibleContacts}
-            filter={filter}
-            onChangeFilter={changeFilter}
-            onDeleteContact={deleteContact}
-          />
+          <Filter />
+          <ContactsList />
         </Section>
-      )}
+      ) : null}
     </Layout>
   );
-};
+}
 
-export default App;
+const mapStateToProps = state => ({
+  contacts: state.contacts,
+});
+
+export default connect(mapStateToProps)(App);

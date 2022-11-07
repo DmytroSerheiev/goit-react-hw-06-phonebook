@@ -94,3 +94,12 @@ końcu łańcucha jest obowiązkowy.
 3. Jeżeli wszystkie kroki zakończyły się sukcesem, zbudowana wersja produkcyjna
    plików projektu wysyłana jest do gałęzi `gh-pages`. W przeciwnym razie, w
    logu wykonania skryptu zostanie wskazane z czym jest problem.
+   
+const defaultContacts = [
+  { id: 'id-1', name: 'putin Zdoh', phone: '426-72-16' },
+  { id: 'id-2', name: 'Bastian Kluni', phone: '653-43-99' },
+  { id: 'id-3', name: 'Violet Puhka', phone: '365-78-14' },
+  { id: 'id-4', name: 'Olga Perperdukalo', phone: '911-91-19' },
+];
+
+export default defaultContacts;

@@ -11,7 +11,7 @@ export default function ContactsList() {
 
   const filteredContacts = (contacts, filter) => {
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase()),
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
 
@@ -20,11 +20,12 @@ export default function ContactsList() {
   return (
     <>
       <ul>
-        {filterContacts.map(({ id, name, phone }) => (
+        {filterContacts.map(({ id, name, phone, email }) => (
           <li key={id}>
             <p className={s.nameText}>
               {name}: <span>{phone}</span>
             </p>
+            <p>Email: {email}</p> {/* Выводим email здесь */}
             <button type="button" onClick={e => onDeleteBtn(id)}>
               Delete
             </button>
@@ -42,6 +43,7 @@ ContactsList.propTypes = {
       id: propTypes.string,
       name: propTypes.string,
       phone: propTypes.string,
-    }),
+      email: propTypes.string,
+    })
   ),
 };

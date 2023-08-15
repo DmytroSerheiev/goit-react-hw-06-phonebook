@@ -7,10 +7,12 @@ import { addContacts } from '../../redux/contacts-actions';
 export default function ContactsForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const { contacts } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const onAddContacts = (name, phone) => dispatch(addContacts(name, phone));
+  const onAddContacts = (name, phone, email) =>
+    dispatch(addContacts(name, phone, email));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,11 +23,12 @@ export default function ContactsForm() {
     if (isAdded(name)) {
       return alert(`${name} is already in contacts`);
     } else {
-      onAddContacts(name, phone);
+      onAddContacts(name, phone, email);
     }
 
     setName('');
     setPhone('');
+    setEmail('');
   };
 
   return (
@@ -51,6 +54,16 @@ export default function ContactsForm() {
           id="phone"
           value={phone}
           onChange={e => setPhone(e.target.value)}
+        />
+        <label id="email" htmlFor="email">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
         <button type="submit" disabled={!(name && phone)}>
           add contact
